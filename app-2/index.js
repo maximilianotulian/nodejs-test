@@ -52,6 +52,19 @@ app.patch('/comments/:id', (req, res) => {
   res.redirect('/comments');
 });
 
+app.get('/comments/:id/delete', (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find(c => c.id === id);
+  res.render('comments/delete', { comment });
+});
+
+app.delete('/comments/:id', (req, res) => {
+  const { id } = req.params;
+  const commentIndex = comments.findIndex(c => c.id === id);
+  comments.pop(commentIndex);
+  res.redirect('/comments');
+});
+
 app.listen(3000, () => {
   console.log('Listening in 3000');
 });

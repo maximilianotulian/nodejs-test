@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete</title>
+</head>
+<body>
+  <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+    <textarea name="comment" id="" cols="30" rows="10">
+      <%= comment.comment %>
+    </textarea>
+    <p>Are you sure, you want to delete comment with id: <%= comment.id %></p>
+    <button type="submit">Delete</button>
+  </form>
+</body>
+</html>
